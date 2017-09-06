@@ -2,26 +2,34 @@ package dev.paie.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-
 import java.math.BigDecimal;
-import java.util.List;
 import java.util.Optional;
 import java.util.Random;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import dev.paie.config.DataSourceMySQLConfig;
 import dev.paie.config.JpaConfig;
+import dev.paie.config.JpaTransactionManagerConfig;
+import dev.paie.config.ServicesConfig;
 import dev.paie.entite.Cotisation;
-import dev.paie.entite.Grade;
 
-@ContextConfiguration(classes = { JpaConfig.class })
+
+@ContextConfiguration(
+	classes = { 
+		ServicesConfig.class, 
+		JpaConfig.class, 
+		JpaTransactionManagerConfig.class, 
+		DataSourceMySQLConfig.class 
+	}
+)
 @RunWith(SpringRunner.class)
-
 public class CotisationServiceJpaTest {
 
 	@Autowired

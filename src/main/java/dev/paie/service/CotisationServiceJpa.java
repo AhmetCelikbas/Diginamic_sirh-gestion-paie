@@ -27,11 +27,11 @@ public class CotisationServiceJpa implements CotisationService {
 	@Transactional
 	public void mettreAJour(Cotisation cotisation) {
 		// TODO Auto-generated method stub
-		Cotisation ancienneCotisation = em.find(Cotisation.class, cotisation.getId());		
-		ancienneCotisation.setCode(cotisation.getCode());
-		ancienneCotisation.setLibelle(cotisation.getLibelle());
-		ancienneCotisation.setTauxSalarial(cotisation.getTauxSalarial());
-		ancienneCotisation.setTauxPatronal(cotisation.getTauxPatronal());
+		Cotisation nouvelleCotisation = em.find(Cotisation.class, cotisation.getId());		
+		nouvelleCotisation.setCode(cotisation.getCode());
+		nouvelleCotisation.setLibelle(cotisation.getLibelle());
+		nouvelleCotisation.setTauxSalarial(cotisation.getTauxSalarial());
+		nouvelleCotisation.setTauxPatronal(cotisation.getTauxPatronal());
 	}
 
 	@Override

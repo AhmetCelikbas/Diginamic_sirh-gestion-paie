@@ -15,11 +15,13 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import dev.paie.config.DataSourceMySQLConfig;
+import dev.paie.config.JpaTransactionManagerConfig;
+import dev.paie.config.ServicesConfig;
 import dev.paie.entite.Grade;
 
 //TODO compléter la configuration
 
-@ContextConfiguration(classes = { DataSourceMySQLConfig.class })
+@ContextConfiguration(classes = { ServicesConfig.class })
 @RunWith(SpringRunner.class)
 
 public class GradeServiceJdbcTemplateTest {
