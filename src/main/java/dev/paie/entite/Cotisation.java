@@ -1,33 +1,55 @@
 package dev.paie.entite;
 
 import java.math.BigDecimal;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-
+@Table(name="COTISATIONS")
 public class Cotisation {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column
+	@Column(name="CODE")
 	private String code;
 	
-	@Column
+	@Column(name="LIBELLE")
 	private String libelle;
 	
-	@Column
+	@Column(name="TX_SALARIAL")
 	private BigDecimal tauxSalarial;
 	
-	@Column
+	@Column(name="TX_PATRONAL")
 	private BigDecimal tauxPatronal;
 	
+	
+	/**
+	 * Default Entity constructor
+	 */
+	public Cotisation(){
+		
+	}
+	
+	/**
+	 * @param code
+	 * @param libelle
+	 * @param tauxSalarial
+	 * @param tauxPatronal
+	 */
+	public Cotisation(String code, String libelle, BigDecimal tauxSalarial, BigDecimal tauxPatronal) {
+		super();
+		this.code = code;
+		this.libelle = libelle;
+		this.tauxSalarial = tauxSalarial;
+		this.tauxPatronal = tauxPatronal;
+	}
+
 	
 	public String getCode() {
 		return code;
@@ -60,9 +82,5 @@ public class Cotisation {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
-	
-	
-	
 
 }
